@@ -1,3 +1,17 @@
 class Actor < ActiveRecord::Base
-  
+
+  has_many :characters
+  has_many :shows, through: :characters
+
+  def full_name
+    [self.first_name, self.last_name].join(" ")
+  end
+
+  def list_roles
+    test = self.characters.inject([]) do |arr, character|
+      arr << character.name
+      arr << character.show.name
+    end.join(" - ")
+  end
+
 end
