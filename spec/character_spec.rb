@@ -2,7 +2,7 @@ require_relative 'spec_helper'
 
 describe Character do
 
-  it "has a first and last name" do
+  it "has a name" do
     jerry = Character.create(name:'Jerry')
 
     expect(jerry.name).to eq("Jerry")
